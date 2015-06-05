@@ -50,6 +50,10 @@
     PHLightState *lightState = [[PHLightState alloc] init];
     [lightState setAlert:ALERT_LSELECT];
     [self updateLightsWithState:lightState];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(10 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self setHueWhite];
+    });
 }
 
 - (void)setHueWhite
