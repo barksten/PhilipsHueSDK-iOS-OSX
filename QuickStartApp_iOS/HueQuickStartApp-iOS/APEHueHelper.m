@@ -11,6 +11,28 @@
 
 @implementation APEHueHelper
 
+- (void)setFlashing
+{
+    PHBridgeResourcesCache *cache = [PHBridgeResourcesReader readBridgeResourcesCache];
+    PHBridgeSendAPI *bridgeSendAPI = [[PHBridgeSendAPI alloc] init];
+    
+    for (PHLight *light in cache.lights.allValues) {
+        
+        PHLightState *lightState = [[PHLightState alloc] init];
+        
+        [lightState setAlert:ALERT_LSELECT];
+        
+        // Send lightstate to light
+        [bridgeSendAPI updateLightStateForId:light.identifier withLightState:lightState completionHandler:^(NSArray *errors) {
+            if (errors != nil) {
+                NSString *message = [NSString stringWithFormat:@"%@: %@", NSLocalizedString(@"Errors", @""), errors != nil ? errors : NSLocalizedString(@"none", @"")];
+                
+                NSLog(@"Response: %@",message);
+            }
+        }];
+    }
+}
+
 - (void)setHueWhite
 {
     [self setHueColor:[UIColor whiteColor]];
@@ -46,6 +68,6 @@
             }
         }];
     }
-
 }
+
 @end

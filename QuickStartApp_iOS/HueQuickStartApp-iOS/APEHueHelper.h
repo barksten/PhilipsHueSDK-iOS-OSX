@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface APEHueHelper : NSObject
-- (void) setHueRed;
-- (void) setHueWhite;
+- (void)setHueRed;
+- (void)setHueWhite;
+- (void)setFlashing;
 @end

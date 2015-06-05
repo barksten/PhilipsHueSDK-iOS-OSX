@@ -150,6 +150,7 @@
 }
 
 - (IBAction)flashButtonAction:(id)sender {
+    [self.hueHelper setFlashing];
 }
 
 @end
