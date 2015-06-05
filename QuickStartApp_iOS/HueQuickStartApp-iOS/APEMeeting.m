@@ -24,8 +24,26 @@
     
     meeting.start = [dateFormatter dateFromString:JSON[@"start_time"]];
     meeting.end = [dateFormatter dateFromString:JSON[@"end_time"]];
+    
+    NSMutableArray *topics = [[NSMutableArray alloc]init];
+    for (NSDictionary *topicDict in JSON[@"topics"]) {
+        [topics addObject:[APETopic instanceFromJSON:topicDict]];
+    }
+    meeting.topics = topics.copy;
 
     return meeting;
+}
+
+@end
+
+@implementation APETopic
+
++ (APETopic *)instanceFromJSON:(NSDictionary *)JSON
+{
+    APETopic *newTopic = APETopic.new;
+    newTopic.topicDescription = JSON[@"description"];
+    newTopic.duration = JSON[@"time"];
+    return newTopic;
 }
 
 @end

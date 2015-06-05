@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "APEMeeting.h"
 
 @interface APENetworkClient : NSObject
 

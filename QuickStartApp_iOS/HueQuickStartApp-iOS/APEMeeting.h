@@ -10,13 +10,24 @@
 
 @interface APEMeeting : NSObject
 
-@property (nonatomic, strong) NSString *meetingID;
-@property (nonatomic, strong) NSString *title;
+@property (nonatomic, copy) NSString *meetingID;
+@property (nonatomic, copy) NSString *title;
 
-@property (nonatomic, strong) NSString *agenda;
-@property (nonatomic, strong) NSDate *start;
-@property (nonatomic, strong) NSDate *end;
+@property (nonatomic, copy) NSString *agenda;
+@property (nonatomic, copy) NSDate *start;
+@property (nonatomic, copy) NSDate *end;
+
+@property (nonatomic, strong) NSArray *topics;
 
 + (APEMeeting *)instanceFromJSON:(NSDictionary *)JSON;
+
+@end
+
+@interface APETopic : NSObject
+
+@property (nonatomic, copy) NSString *topicDescription;
+@property (nonatomic, copy) NSNumber *duration;
+
++ (APETopic *)instanceFromJSON:(NSDictionary *)JSON;
 
 @end

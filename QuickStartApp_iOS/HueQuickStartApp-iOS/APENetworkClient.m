@@ -7,7 +7,6 @@
 //
 
 #import "APENetworkClient.h"
-#import "APEMeeting.h"
 
 @implementation APENetworkClient
 

@@ -9,6 +9,9 @@
 #import <HueSDK_iOS/HueSDK.h>
 #define MAX_HUE 65535
 
+#import "APENetworkClient.h"
+
+
 @interface PHControlLightsViewController()
 
 @property (nonatomic,weak) IBOutlet UILabel *bridgeMacLabel;
@@ -16,6 +19,8 @@
 @property (nonatomic,weak) IBOutlet UILabel *bridgeLastHeartbeatLabel;
 @property (nonatomic,weak) IBOutlet UIButton *randomLightsButton;
 @property (nonatomic,strong) APEHueHelper *hueHelper;
+
+@property (strong, nonatomic) NSArray *meetings;
 
 @end
 
@@ -47,6 +52,11 @@
     [self noLocalConnection];
 
     self.hueHelper = APEHueHelper.new;
+    [APENetworkClient getMeetingsWithCompletionHandler:^(NSArray *meetings) {
+        self.meetings = meetings;
+        
+    }];
+
 }
 
 - (UIRectEdge)edgesForExtendedLayout {
@@ -151,6 +161,15 @@
 
 - (IBAction)flashButtonAction:(id)sender {
     [self.hueHelper setFlashing];
+}
+
+- (IBAction)playlistButtonAction:(id)sender {
+    
+    for (APEMeeting *meeting in self.meetings) {
+        //
+        NSLog(@"meeting: %@", meeting);
+    }
+    
 }
 
 @end
