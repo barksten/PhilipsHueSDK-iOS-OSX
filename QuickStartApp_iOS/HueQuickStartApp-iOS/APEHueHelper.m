@@ -30,9 +30,15 @@
     }
 }
 
-- (PHLightState *)lightStateFromColor:(UIColor *)color
+- (PHLightState *)lightStateFromColor:(UIColor *)color andFlash:(BOOL)flash
 {
     PHLightState *lightState = [[PHLightState alloc] init];
+    if (flash) {
+        [lightState setAlert:ALERT_LSELECT];
+    }
+    else {
+        [lightState setAlert:ALERT_NONE];
+    }
     
     CGFloat hue, sat, brig, alph;
     [color getHue:&hue saturation:&sat brightness:&brig alpha:&alph];
@@ -47,18 +53,17 @@
 
 - (void)setFlashing
 {
-    PHLightState *lightState = [[PHLightState alloc] init];
-    [lightState setAlert:ALERT_LSELECT];
-    [self updateLightsWithState:lightState];
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(10 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self setHueWhite];
-    });
+    [self updateLightsWithState:[self lightStateFromColor:[UIColor redColor] andFlash:YES]];
 }
 
 - (void)setHueWhite
 {
     [self setHueColor:[UIColor whiteColor]];
+}
+
+- (void)setHueGreen
+{
+    [self setHueColor:[UIColor greenColor]];
 }
 
 - (void)setHueRed
@@ -68,7 +73,7 @@
 
 - (void)setHueColor:(UIColor *)color
 {
-    [self updateLightsWithState:[self lightStateFromColor:color]];
+    [self updateLightsWithState:[self lightStateFromColor:color andFlash:NO]];
 }
 
 @end

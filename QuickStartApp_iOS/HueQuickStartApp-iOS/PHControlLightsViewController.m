@@ -165,11 +165,38 @@
 
 - (IBAction)playlistButtonAction:(id)sender {
     
-    for (APEMeeting *meeting in self.meetings) {
-        //
-        NSLog(@"meeting: %@", meeting);
+    APEMeeting *meeting = self.meetings.firstObject;
+    NSTimeInterval offset = 0;
+    for (APETopic *topic in meeting.topics) {
+        NSTimeInterval duration = topic.duration.doubleValue;
+        [self startTopicWithDelay:offset andDuration:duration];
+        offset += duration;
     }
+    [self endMeetingAfter: offset];
+}
+
+- (void)endMeetingAfter:(NSTimeInterval)delay
+{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delay * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    [self.hueHelper setHueGreen];
+    });
+}
+
+- (void)startTopicWithDelay:(NSTimeInterval)delay andDuration:(NSTimeInterval)length
+{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delay * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.hueHelper setHueWhite];
+    });
     
+    NSTimeInterval warningTime = delay + (length - 10);
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(warningTime * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.hueHelper setHueRed];
+    });
+    
+    NSTimeInterval endTime = delay + (length - 5);
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(endTime * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.hueHelper setFlashing];
+    });
 }
 
 @end

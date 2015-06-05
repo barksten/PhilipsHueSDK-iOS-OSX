@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "HueQuickStartApp-iOS/PHControlLightsViewController.m"
-            timestampString = "455200441.241812"
+            filePath = "HueQuickStartApp-iOS/APEHueHelper.m"
+            timestampString = "455203864.929518"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "170"
-            endingLineNumber = "170"
-            landmarkName = "-playlistButtonAction:"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "-lightStateFromColor:andFlash:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
