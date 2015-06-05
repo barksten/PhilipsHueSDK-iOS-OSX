@@ -5,7 +5,7 @@
 
 #import "PHControlLightsViewController.h"
 #import "PHAppDelegate.h"
-
+#import "APEHueHelper.h"
 #import <HueSDK_iOS/HueSDK.h>
 #define MAX_HUE 65535
 
@@ -15,6 +15,7 @@
 @property (nonatomic,weak) IBOutlet UILabel *bridgeIpLabel;
 @property (nonatomic,weak) IBOutlet UILabel *bridgeLastHeartbeatLabel;
 @property (nonatomic,weak) IBOutlet UIButton *randomLightsButton;
+@property (nonatomic,strong) APEHueHelper *hueHelper;
 
 @end
 
@@ -44,6 +45,8 @@
     self.navigationItem.title = @"QuickStart";
     
     [self noLocalConnection];
+
+    self.hueHelper = APEHueHelper.new;
 }
 
 - (UIRectEdge)edgesForExtendedLayout {
@@ -136,6 +139,10 @@
 
 - (void)findNewBridgeButtonAction{
     [UIAppDelegate searchForBridgeLocal];
+}
+
+- (IBAction)redButtonAction:(id)sender {
+    [self.hueHelper setHueRed];
 }
 
 @end

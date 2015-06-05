@@ -34,6 +34,7 @@
 		F715240718337FD50033689C /* DispatchQueueLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F715240018337FD50033689C /* DispatchQueueLogFormatter.m */; };
 		F7ADC2A017FDAAA70038A1D6 /* PHControlLightsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7ADC29E17FDAAA70038A1D6 /* PHControlLightsViewController.m */; };
 		F7ADC2A117FDAAA70038A1D6 /* PHControlLightsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7ADC29F17FDAAA70038A1D6 /* PHControlLightsViewController.xib */; };
+		FCAD927A1B2198B7001C2691 /* APEHueHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FCAD92791B2198B7001C2691 /* APEHueHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +80,8 @@
 		F7ADC29D17FDAAA70038A1D6 /* PHControlLightsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHControlLightsViewController.h; sourceTree = "<group>"; };
 		F7ADC29E17FDAAA70038A1D6 /* PHControlLightsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHControlLightsViewController.m; sourceTree = "<group>"; };
 		F7ADC29F17FDAAA70038A1D6 /* PHControlLightsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PHControlLightsViewController.xib; sourceTree = "<group>"; };
+		FCAD92781B2198B7001C2691 /* APEHueHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APEHueHelper.h; sourceTree = "<group>"; };
+		FCAD92791B2198B7001C2691 /* APEHueHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APEHueHelper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +142,7 @@
 		4CCACF9C165692D4008E9D69 /* HueQuickStartApp-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				FCAD92771B21986A001C2691 /* Apehack */,
 				4CCACFA5165692D5008E9D69 /* PHAppDelegate.h */,
 				4CCACFA6165692D5008E9D69 /* PHAppDelegate.m */,
 				F7ADC29D17FDAAA70038A1D6 /* PHControlLightsViewController.h */,
@@ -218,6 +222,15 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		FCAD92771B21986A001C2691 /* Apehack */ = {
+			isa = PBXGroup;
+			children = (
+				FCAD92781B2198B7001C2691 /* APEHueHelper.h */,
+				FCAD92791B2198B7001C2691 /* APEHueHelper.m */,
+			);
+			name = Apehack;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -244,7 +257,7 @@
 		4CCACF89165692D4008E9D69 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				CLASSPREFIX = PH;
+				CLASSPREFIX = APE;
 				LastUpgradeCheck = 0450;
 				ORGANIZATIONNAME = Philips;
 			};
@@ -303,6 +316,7 @@
 				F715240318337FD50033689C /* DDFileLogger.m in Sources */,
 				F7ADC2A017FDAAA70038A1D6 /* PHControlLightsViewController.m in Sources */,
 				F715240618337FD50033689C /* ContextFilterLogFormatter.m in Sources */,
+				FCAD927A1B2198B7001C2691 /* APEHueHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
