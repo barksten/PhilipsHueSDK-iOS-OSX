@@ -26,6 +26,8 @@
 		4CCACFDE165693F4008E9D69 /* press_smartbridge@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CCACFD6165693F4008E9D69 /* press_smartbridge@2x.png */; };
 		87194E79184F7FA700576916 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87194E78184F7FA700576916 /* CoreGraphics.framework */; };
 		F5B4F52D1B21AE5D00BB5065 /* APENetworkClient.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B4F52C1B21AE5D00BB5065 /* APENetworkClient.m */; };
+		F5B4F5301B21B9EF00BB5065 /* meetings.json in Resources */ = {isa = PBXBuildFile; fileRef = F5B4F52F1B21B9EF00BB5065 /* meetings.json */; };
+		F5B4F5331B21C0C700BB5065 /* APEMeeting.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B4F5321B21C0C700BB5065 /* APEMeeting.m */; };
 		F715240118337FD50033689C /* DDAbstractDatabaseLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F71523F318337FD50033689C /* DDAbstractDatabaseLogger.m */; };
 		F715240218337FD50033689C /* DDASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F71523F518337FD50033689C /* DDASLLogger.m */; };
 		F715240318337FD50033689C /* DDFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F71523F718337FD50033689C /* DDFileLogger.m */; };
@@ -66,6 +68,9 @@
 		87194E78184F7FA700576916 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		F5B4F52B1B21AE5D00BB5065 /* APENetworkClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APENetworkClient.h; sourceTree = "<group>"; };
 		F5B4F52C1B21AE5D00BB5065 /* APENetworkClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APENetworkClient.m; sourceTree = "<group>"; };
+		F5B4F52F1B21B9EF00BB5065 /* meetings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = meetings.json; sourceTree = "<group>"; };
+		F5B4F5311B21C0C700BB5065 /* APEMeeting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APEMeeting.h; sourceTree = "<group>"; };
+		F5B4F5321B21C0C700BB5065 /* APEMeeting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APEMeeting.m; sourceTree = "<group>"; };
 		F71523F218337FD50033689C /* DDAbstractDatabaseLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDAbstractDatabaseLogger.h; sourceTree = "<group>"; };
 		F71523F318337FD50033689C /* DDAbstractDatabaseLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDAbstractDatabaseLogger.m; sourceTree = "<group>"; };
 		F71523F418337FD50033689C /* DDASLLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDASLLogger.h; sourceTree = "<group>"; };
@@ -232,6 +237,9 @@
 				FCAD92791B2198B7001C2691 /* APEHueHelper.m */,
 				F5B4F52B1B21AE5D00BB5065 /* APENetworkClient.h */,
 				F5B4F52C1B21AE5D00BB5065 /* APENetworkClient.m */,
+				F5B4F5311B21C0C700BB5065 /* APEMeeting.h */,
+				F5B4F5321B21C0C700BB5065 /* APEMeeting.m */,
+				F5B4F52F1B21B9EF00BB5065 /* meetings.json */,
 			);
 			name = Apehack;
 			sourceTree = "<group>";
@@ -298,6 +306,7 @@
 				4CCACFAB165692D5008E9D69 /* Default@2x.png in Resources */,
 				4CCACFAD165692D5008E9D69 /* Default-568h@2x.png in Resources */,
 				4CCACFDA165693F4008E9D69 /* PHBridgePushLinkViewController.xib in Resources */,
+				F5B4F5301B21B9EF00BB5065 /* meetings.json in Resources */,
 				4CCACFDC165693F4008E9D69 /* PHBridgeSelectionViewController.xib in Resources */,
 				4CCACFDD165693F4008E9D69 /* press_smartbridge.png in Resources */,
 				4CCACFDE165693F4008E9D69 /* press_smartbridge@2x.png in Resources */,
@@ -319,6 +328,7 @@
 				4CCACFA7165692D5008E9D69 /* PHAppDelegate.m in Sources */,
 				F715240718337FD50033689C /* DispatchQueueLogFormatter.m in Sources */,
 				F715240518337FD50033689C /* DDTTYLogger.m in Sources */,
+				F5B4F5331B21C0C700BB5065 /* APEMeeting.m in Sources */,
 				4CCACFD9165693F4008E9D69 /* PHBridgePushLinkViewController.m in Sources */,
 				4CCACFDB165693F4008E9D69 /* PHBridgeSelectionViewController.m in Sources */,
 				F715240118337FD50033689C /* DDAbstractDatabaseLogger.m in Sources */,

@@ -7,6 +7,7 @@
 
 #import "PHLoadingViewController.h"
 #import "PHControlLightsViewController.h"
+#import "APENetworkClient.h"
 
 @interface PHAppDelegate ()
 
@@ -77,6 +78,10 @@
      *****************************************************/
     
     [self enableLocalHeartbeat];
+    
+    [APENetworkClient getMeetingsWithCompletionHandler:^(NSArray *meetings) {
+        //
+    }];
     
     return YES;
 }

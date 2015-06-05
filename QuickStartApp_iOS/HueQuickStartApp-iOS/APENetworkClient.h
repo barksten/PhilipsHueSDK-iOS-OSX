@@ -10,6 +10,6 @@
 
 @interface APENetworkClient : NSObject
 
-- (void)getMeetingsWithCompletionHandler:(void (^)(NSArray *meetings))completionHandler;
++ (void)getMeetingsWithCompletionHandler:(void (^)(NSArray *meetings))completionHandler;
 
 @end
