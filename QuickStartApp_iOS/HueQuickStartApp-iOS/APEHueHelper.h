@@ -10,5 +10,5 @@
 
 @interface APEHueHelper : NSObject
 - (void) setHueRed;
-
+- (void) setHueWhite;
 @end

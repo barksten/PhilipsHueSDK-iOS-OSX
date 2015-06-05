@@ -10,7 +10,19 @@
 #import <HueSDK_iOS/HueSDK.h>
 
 @implementation APEHueHelper
-- (void) setHueRed {
+
+- (void)setHueWhite
+{
+    [self setHueColor:[UIColor whiteColor]];
+}
+
+- (void)setHueRed
+{
+    [self setHueColor:[UIColor redColor]];
+}
+
+- (void)setHueColor:(UIColor *)color
+{
     PHBridgeResourcesCache *cache = [PHBridgeResourcesReader readBridgeResourcesCache];
     PHBridgeSendAPI *bridgeSendAPI = [[PHBridgeSendAPI alloc] init];
     
@@ -18,9 +30,12 @@
         
         PHLightState *lightState = [[PHLightState alloc] init];
         
-        [lightState setHue:@0];
-        [lightState setBrightness:@254];
-        [lightState setSaturation:@254];
+        CGFloat hue, sat, brig, alph;
+        [color getHue:&hue saturation:&sat brightness:&brig alpha:&alph];
+        
+        [lightState setHue:[NSNumber numberWithDouble:(hue * 65535)]];
+        [lightState setBrightness:[NSNumber numberWithDouble:(brig * 254)]];
+        [lightState setSaturation:[NSNumber numberWithDouble:(sat * 254)]];
         
         // Send lightstate to light
         [bridgeSendAPI updateLightStateForId:light.identifier withLightState:lightState completionHandler:^(NSArray *errors) {

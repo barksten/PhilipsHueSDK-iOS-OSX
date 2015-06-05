@@ -145,4 +145,11 @@
     [self.hueHelper setHueRed];
 }
 
+- (IBAction)whiteButtonAction:(id)sender {
+    [self.hueHelper setHueWhite];
+}
+
+- (IBAction)flashButtonAction:(id)sender {
+}
+
 @end
