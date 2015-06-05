@@ -265,6 +265,11 @@
 				CLASSPREFIX = APE;
 				LastUpgradeCheck = 0450;
 				ORGANIZATIONNAME = Philips;
+				TargetAttributes = {
+					4CCACF91165692D4008E9D69 = {
+						DevelopmentTeam = Q48PCXNS55;
+					};
+				};
 			};
 			buildConfigurationList = 4CCACF8C165692D4008E9D69 /* Build configuration list for PBXProject "HueQuickStartApp-iOS" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -415,7 +420,7 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "HueQuickStartApp-iOS";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "c3c162ac-880f-4e64-b591-96f142caed80";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
@@ -440,7 +445,7 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "HueQuickStartApp-iOS";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "c3c162ac-880f-4e64-b591-96f142caed80";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
