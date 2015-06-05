@@ -11,19 +11,16 @@
 
 @implementation APEHueHelper
 
-- (void)setFlashing
+#pragma mark - Helpers
+
+- (void)updateLightsWithState:(PHLightState *)state
 {
     PHBridgeResourcesCache *cache = [PHBridgeResourcesReader readBridgeResourcesCache];
     PHBridgeSendAPI *bridgeSendAPI = [[PHBridgeSendAPI alloc] init];
     
     for (PHLight *light in cache.lights.allValues) {
         
-        PHLightState *lightState = [[PHLightState alloc] init];
-        
-        [lightState setAlert:ALERT_LSELECT];
-        
-        // Send lightstate to light
-        [bridgeSendAPI updateLightStateForId:light.identifier withLightState:lightState completionHandler:^(NSArray *errors) {
+        [bridgeSendAPI updateLightStateForId:light.identifier withLightState:state completionHandler:^(NSArray *errors) {
             if (errors != nil) {
                 NSString *message = [NSString stringWithFormat:@"%@: %@", NSLocalizedString(@"Errors", @""), errors != nil ? errors : NSLocalizedString(@"none", @"")];
                 
@@ -31,6 +28,28 @@
             }
         }];
     }
+}
+
+- (PHLightState *)lightStateFromColor:(UIColor *)color
+{
+    PHLightState *lightState = [[PHLightState alloc] init];
+    
+    CGFloat hue, sat, brig, alph;
+    [color getHue:&hue saturation:&sat brightness:&brig alpha:&alph];
+    
+    [lightState setHue:[NSNumber numberWithDouble:(hue * 65535)]];
+    [lightState setBrightness:[NSNumber numberWithDouble:(brig * 254)]];
+    [lightState setSaturation:[NSNumber numberWithDouble:(sat * 254)]];
+    return lightState;
+}
+
+#pragma mark - Public Actions
+
+- (void)setFlashing
+{
+    PHLightState *lightState = [[PHLightState alloc] init];
+    [lightState setAlert:ALERT_LSELECT];
+    [self updateLightsWithState:lightState];
 }
 
 - (void)setHueWhite
@@ -45,29 +64,7 @@
 
 - (void)setHueColor:(UIColor *)color
 {
-    PHBridgeResourcesCache *cache = [PHBridgeResourcesReader readBridgeResourcesCache];
-    PHBridgeSendAPI *bridgeSendAPI = [[PHBridgeSendAPI alloc] init];
-    
-    for (PHLight *light in cache.lights.allValues) {
-        
-        PHLightState *lightState = [[PHLightState alloc] init];
-        
-        CGFloat hue, sat, brig, alph;
-        [color getHue:&hue saturation:&sat brightness:&brig alpha:&alph];
-        
-        [lightState setHue:[NSNumber numberWithDouble:(hue * 65535)]];
-        [lightState setBrightness:[NSNumber numberWithDouble:(brig * 254)]];
-        [lightState setSaturation:[NSNumber numberWithDouble:(sat * 254)]];
-        
-        // Send lightstate to light
-        [bridgeSendAPI updateLightStateForId:light.identifier withLightState:lightState completionHandler:^(NSArray *errors) {
-            if (errors != nil) {
-                NSString *message = [NSString stringWithFormat:@"%@: %@", NSLocalizedString(@"Errors", @""), errors != nil ? errors : NSLocalizedString(@"none", @"")];
-                
-                NSLog(@"Response: %@",message);
-            }
-        }];
-    }
+    [self updateLightsWithState:[self lightStateFromColor:color]];
 }
 
 @end
